@@ -1,7 +1,10 @@
 ###### 项目的字典文件data未放到Git 需要手动放到项目主目录
 
 ### Git:
-    https://github.com/hzming8713/ykthanlp.git
+
+	源码：https://github.com/hankcs/HanLP.git
+	
+    ykthanlp：https://github.com/hzming8713/ykthanlp.git
     
 ### hzming：
     1.考虑到算法的可读性，入参出参需定义清晰，fastjson ,map等皆可

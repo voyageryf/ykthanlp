@@ -1,14 +1,15 @@
 package com.hankcs.hanlp.classification.classifiers;
 
+import com.hankcs.hanlp.classification.features.ChiSquareFeatureExtractor;
+import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
+import com.hankcs.hanlp.classification.corpus.Document;
+import com.hankcs.hanlp.classification.corpus.IDataSet;
 import com.hankcs.hanlp.utility.MathUtility;
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 import com.hankcs.hanlp.classification.corpus.*;
-import com.hankcs.hanlp.classification.features.ChiSquareFeatureExtractor;
 import com.hankcs.hanlp.classification.features.BaseFeatureData;
 import com.hankcs.hanlp.classification.models.AbstractModel;
 import com.hankcs.hanlp.classification.models.NaiveBayesModel;
-
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
 
 import java.util.*;
 
@@ -50,7 +51,7 @@ public class NaiveBayesClassifier extends AbstractClassifier
 
     public void train(IDataSet dataSet)
     {
-        logger.out("原始数据集大小:%d\n", dataSet.size());
+        ConsoleLogger.logger.out("原始数据集大小:%d\n", dataSet.size());
         //选择最佳特征
         BaseFeatureData featureData = selectFeatures(dataSet);
 
@@ -105,7 +106,7 @@ public class NaiveBayesClassifier extends AbstractClassifier
                 model.logLikelihoods.get(feature).put(category, logLikelihood);
             }
         }
-        logger.out("贝叶斯统计结束\n");
+        ConsoleLogger.logger.out("贝叶斯统计结束\n");
         model.catalog = dataSet.getCatalog().toArray();
         model.tokenizer = dataSet.getTokenizer();
         model.wordIdTrie = featureData.wordIdTrie;
@@ -133,7 +134,7 @@ public class NaiveBayesClassifier extends AbstractClassifier
         return predict(doc);
     }
 
-    @Override
+//    @Override
     public double[] categorize(Document document) throws IllegalArgumentException, IllegalStateException
     {
         Integer category;
@@ -178,7 +179,7 @@ public class NaiveBayesClassifier extends AbstractClassifier
     {
         ChiSquareFeatureExtractor chiSquareFeatureExtractor = new ChiSquareFeatureExtractor();
 
-        logger.start("使用卡方检测选择特征中...");
+        ConsoleLogger.logger.start("使用卡方检测选择特征中...");
         //FeatureStats对象包含文档中所有特征及其统计信息
         BaseFeatureData featureData = chiSquareFeatureExtractor.extractBasicFeatureData(dataSet); //执行统计
 
@@ -195,7 +196,7 @@ public class NaiveBayesClassifier extends AbstractClassifier
             featureCategoryJointCount[++p] = featureData.featureCategoryJointCount[feature];
             featureData.wordIdTrie.put(wordIdArray[feature], p);
         }
-        logger.finish(",选中特征数:%d / %d = %.2f%%\n", featureCategoryJointCount.length,
+        ConsoleLogger.logger.finish(",选中特征数:%d / %d = %.2f%%\n", featureCategoryJointCount.length,
                       featureData.featureCategoryJointCount.length,
                       featureCategoryJointCount.length / (double)featureData.featureCategoryJointCount.length * 100.);
         featureData.featureCategoryJointCount = featureCategoryJointCount;

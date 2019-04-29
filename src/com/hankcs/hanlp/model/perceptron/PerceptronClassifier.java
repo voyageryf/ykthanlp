@@ -11,13 +11,13 @@
 package com.hankcs.hanlp.model.perceptron;
 
 import com.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.model.perceptron.common.TaskType;
 import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
 import com.hankcs.hanlp.model.perceptron.feature.LockableFeatureMap;
+import com.hankcs.hanlp.model.perceptron.utility.Utility;
+import com.hankcs.hanlp.model.perceptron.common.TaskType;
 import com.hankcs.hanlp.model.perceptron.model.AveragedPerceptron;
 import com.hankcs.hanlp.model.perceptron.model.LinearModel;
 import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
-import com.hankcs.hanlp.model.perceptron.utility.Utility;
 
 import java.io.IOException;
 import java.util.LinkedList;

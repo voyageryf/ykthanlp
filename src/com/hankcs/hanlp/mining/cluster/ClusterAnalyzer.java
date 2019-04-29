@@ -11,19 +11,17 @@
 package com.hankcs.hanlp.mining.cluster;
 
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.classification.utilities.TextProcessUtility;
+import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
 import com.hankcs.hanlp.collection.trie.datrie.MutableDoubleArrayTrieInteger;
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dictionary.stopword.CoreStopWordDictionary;
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.utility.MathUtility;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
 
 /**
  * 文本聚类
@@ -374,7 +372,7 @@ public class ClusterAnalyzer<K>
         ClusterAnalyzer<String> analyzer = new ClusterAnalyzer<String>();
         File[] folders = root.listFiles();
         if (folders == null) return 1.;
-        logger.start("根目录:%s\n加载中...\n", folderPath);
+        ConsoleLogger.logger.start("根目录:%s\n加载中...\n", folderPath);
         int docSize = 0;
         int[] ni = new int[folders.length];
         String[] cat = new String[folders.length];
@@ -386,7 +384,7 @@ public class ClusterAnalyzer<K>
             if (files == null) continue;
             String category = folder.getName();
             cat[offset] = category;
-            logger.out("[%s]...", category);
+            ConsoleLogger.logger.out("[%s]...", category);
             int b = 0;
             int e = files.length;
 
@@ -396,19 +394,19 @@ public class ClusterAnalyzer<K>
                 analyzer.addDocument(folder.getName() + " " + files[i].getName(), IOUtil.readTxt(files[i].getAbsolutePath()));
                 if (i % logEvery == 0)
                 {
-                    logger.out("%c[%s]...%.2f%%", 13, category, MathUtility.percentage(i - b + 1, e - b));
+                    ConsoleLogger.logger.out("%c[%s]...%.2f%%", 13, category, MathUtility.percentage(i - b + 1, e - b));
                 }
                 ++docSize;
                 ++ni[offset];
             }
-            logger.out(" %d 篇文档\n", e - b);
+            ConsoleLogger.logger.out(" %d 篇文档\n", e - b);
             ++offset;
         }
-        logger.finish(" 加载了 %d 个类目,共 %d 篇文档\n", folders.length, docSize);
-        logger.start(algorithm + "聚类中...");
+        ConsoleLogger.logger.finish(" 加载了 %d 个类目,共 %d 篇文档\n", folders.length, docSize);
+        ConsoleLogger.logger.start(algorithm + "聚类中...");
         List<Set<String>> clusterList = algorithm.replaceAll("[-\\s]", "").toLowerCase().equals("kmeans") ?
             analyzer.kmeans(ni.length) : analyzer.repeatedBisection(ni.length);
-        logger.finish(" 完毕。\n");
+        ConsoleLogger.logger.finish(" 完毕。\n");
         double[] fi = new double[ni.length];
         for (int i = 0; i < ni.length; i++)
         {

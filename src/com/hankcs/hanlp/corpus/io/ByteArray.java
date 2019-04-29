@@ -12,8 +12,7 @@
 package com.hankcs.hanlp.corpus.io;
 
 import com.hankcs.hanlp.utility.ByteUtil;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
+import com.hankcs.hanlp.utility.Predefine;
 
 /**
  * 对字节数组进行封装，提供方便的读取操作
@@ -197,11 +196,11 @@ public class ByteArray
                     /* 110x xxxx   10xx xxxx*/
                     count += 2;
                     if (count > utflen)
-                        logger.severe(
+                        Predefine.logger.severe(
                                 "malformed input: partial character at end");
                     char2 = (int) bytearr[count - 1];
                     if ((char2 & 0xC0) != 0x80)
-                        logger.severe(
+                        Predefine.logger.severe(
                                 "malformed input around byte " + count);
                     chararr[chararr_count++] = (char) (((c & 0x1F) << 6) |
                             (char2 & 0x3F));
@@ -210,12 +209,12 @@ public class ByteArray
                     /* 1110 xxxx  10xx xxxx  10xx xxxx */
                     count += 3;
                     if (count > utflen)
-                        logger.severe(
+                        Predefine.logger.severe(
                                 "malformed input: partial character at end");
                     char2 = (int) bytearr[count - 2];
                     char3 = (int) bytearr[count - 1];
                     if (((char2 & 0xC0) != 0x80) || ((char3 & 0xC0) != 0x80))
-                        logger.severe(
+                        Predefine.logger.severe(
                                 "malformed input around byte " + (count - 1));
                     chararr[chararr_count++] = (char) (((c & 0x0F) << 12) |
                             ((char2 & 0x3F) << 6) |
@@ -223,7 +222,7 @@ public class ByteArray
                     break;
                 default:
                     /* 10xx xxxx,  1111 xxxx */
-                    logger.severe(
+                    Predefine.logger.severe(
                             "malformed input around byte " + count);
             }
         }

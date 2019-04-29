@@ -11,10 +11,10 @@
  */
 package com.hankcs.hanlp.algorithm;
 
-import com.hankcs.hanlp.seg.Dijkstra.Path.State;
 import com.hankcs.hanlp.seg.common.EdgeFrom;
 import com.hankcs.hanlp.seg.common.Graph;
 import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.seg.Dijkstra.Path.State;
 
 import java.util.Arrays;
 import java.util.LinkedList;

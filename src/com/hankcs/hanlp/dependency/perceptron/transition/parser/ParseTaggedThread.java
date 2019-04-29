@@ -1,7 +1,7 @@
 package com.hankcs.hanlp.dependency.perceptron.transition.parser;
 
-import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Pair;
+import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
 import com.hankcs.hanlp.dependency.perceptron.structures.Sentence;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 

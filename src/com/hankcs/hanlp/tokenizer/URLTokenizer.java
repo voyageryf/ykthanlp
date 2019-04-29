@@ -12,9 +12,9 @@
 package com.hankcs.hanlp.tokenizer;
 
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.tag.Nature;
 
 import java.util.LinkedList;
 import java.util.List;

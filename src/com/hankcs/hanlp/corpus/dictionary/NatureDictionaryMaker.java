@@ -11,20 +11,18 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
+import com.hankcs.hanlp.utility.Predefine;
+import com.hankcs.hanlp.utility.TextUtility;
 import com.hankcs.hanlp.corpus.document.CorpusLoader;
 import com.hankcs.hanlp.corpus.document.Document;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.hankcs.hanlp.corpus.util.CorpusUtil;
 import com.hankcs.hanlp.corpus.util.Precompiler;
-import com.hankcs.hanlp.utility.TextUtility;
-import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs
@@ -39,7 +37,7 @@ public class NatureDictionaryMaker extends CommonDictionaryMaker
     @Override
     protected void addToDictionary(List<List<IWord>> sentenceList)
     {
-        logger.info("开始制作词典");
+        Predefine.logger.info("开始制作词典");
         // 制作NGram词典
         for (List<IWord> wordList : sentenceList)
         {
@@ -60,11 +58,11 @@ public class NatureDictionaryMaker extends CommonDictionaryMaker
     @Override
     protected void roleTag(List<List<IWord>> sentenceList)
     {
-        logger.info("开始标注");
+        Predefine.logger.info("开始标注");
         int i = 0;
         for (List<IWord> wordList : sentenceList)
         {
-            logger.info(++i + " / " + sentenceList.size());
+            Predefine.logger.info(++i + " / " + sentenceList.size());
             for (IWord word : wordList)
             {
                 Precompiler.compile(word);  // 编译为等效字符串

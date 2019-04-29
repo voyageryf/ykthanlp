@@ -11,11 +11,11 @@
  */
 package com.hankcs.hanlp.algorithm;
 
-import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.TransformMatrix;
 import com.hankcs.hanlp.dictionary.TransformMatrixDictionary;
 import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
+import com.hankcs.hanlp.corpus.tag.Nature;
 
 import java.util.*;
 

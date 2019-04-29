@@ -10,12 +10,12 @@
  */
 package com.hankcs.hanlp.model.perceptron;
 
+import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
 import com.hankcs.hanlp.model.perceptron.instance.Instance;
 import com.hankcs.hanlp.model.perceptron.instance.NERInstance;
 import com.hankcs.hanlp.model.perceptron.tagset.NERTagSet;
 import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
-import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 
 /**
  * @author hankcs

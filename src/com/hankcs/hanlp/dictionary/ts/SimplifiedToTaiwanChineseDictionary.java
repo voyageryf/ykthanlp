@@ -16,7 +16,6 @@ import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
 
 import java.util.TreeMap;
 
-import static com.hankcs.hanlp.utility.Predefine.BIN_EXT;
 import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**

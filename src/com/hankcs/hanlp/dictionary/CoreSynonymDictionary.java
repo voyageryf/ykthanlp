@@ -12,10 +12,11 @@
 package com.hankcs.hanlp.dictionary;
 
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.algorithm.EditDistance;
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dictionary.common.CommonSynonymDictionary;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.synonym.Synonym;
+import com.hankcs.hanlp.algorithm.EditDistance;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,8 @@ public class CoreSynonymDictionary
     }
 
     /**
-     * 获取一个词的同义词（意义完全相同的，即{@link com.hankcs.hanlp.dictionary.common.CommonSynonymDictionary.SynonymItem#type}
-     * == {@link com.hankcs.hanlp.corpus.synonym.Synonym.Type#EQUAL}的）列表
+     * 获取一个词的同义词（意义完全相同的，即{@link CommonSynonymDictionary.SynonymItem#type}
+     * == {@link Synonym.Type#EQUAL}的）列表
      * @param key
      * @return
      */

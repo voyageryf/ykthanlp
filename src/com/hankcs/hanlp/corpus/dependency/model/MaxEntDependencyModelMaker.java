@@ -14,7 +14,6 @@ package com.hankcs.hanlp.corpus.dependency.model;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLLoader;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
-import com.hankcs.hanlp.corpus.dictionary.DictionaryMaker;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.*;

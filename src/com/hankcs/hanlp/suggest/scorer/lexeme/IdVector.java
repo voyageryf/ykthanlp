@@ -14,8 +14,8 @@ package com.hankcs.hanlp.suggest.scorer.lexeme;
 import com.hankcs.hanlp.algorithm.ArrayCompare;
 import com.hankcs.hanlp.algorithm.ArrayDistance;
 import com.hankcs.hanlp.dictionary.CoreSynonymDictionaryEx;
-import com.hankcs.hanlp.suggest.scorer.ISentenceKey;
 import com.hankcs.hanlp.tokenizer.IndexTokenizer;
+import com.hankcs.hanlp.suggest.scorer.ISentenceKey;
 
 import java.util.Iterator;
 import java.util.List;

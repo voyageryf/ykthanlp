@@ -19,11 +19,8 @@ import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.util.Collection;
 import java.util.TreeMap;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 2-gram依存模型，根据两个词的词和词性猜测它们最可能的依存关系
@@ -38,11 +35,11 @@ public class BigramDependencyModel
         long start = System.currentTimeMillis();
         if (load(HanLP.Config.WordNatureModelPath))
         {
-            logger.info("加载依存句法二元模型" + HanLP.Config.WordNatureModelPath + "成功，耗时：" + (System.currentTimeMillis() - start) + " ms");
+            Predefine.logger.info("加载依存句法二元模型" + HanLP.Config.WordNatureModelPath + "成功，耗时：" + (System.currentTimeMillis() - start) + " ms");
         }
         else
         {
-            logger.warning("加载依存句法二元模型" + HanLP.Config.WordNatureModelPath + "失败，耗时：" + (System.currentTimeMillis() - start) + " ms");
+            Predefine.logger.warning("加载依存句法二元模型" + HanLP.Config.WordNatureModelPath + "失败，耗时：" + (System.currentTimeMillis() - start) + " ms");
         }
     }
 
@@ -63,7 +60,7 @@ public class BigramDependencyModel
         }
         if (map.size() == 0) return false;
         trie.build(map);
-        if (!saveDat(path, map)) logger.warning("缓存" + path + Predefine.BIN_EXT + "失败");
+        if (!saveDat(path, map)) Predefine.logger.warning("缓存" + path + Predefine.BIN_EXT + "失败");
         return true;
     }
 
@@ -97,7 +94,7 @@ public class BigramDependencyModel
         }
         catch (Exception e)
         {
-            logger.warning("保存失败" + e);
+            Predefine.logger.warning("保存失败" + e);
             return false;
         }
         return true;

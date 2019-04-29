@@ -13,7 +13,6 @@ package com.hankcs.hanlp.tokenizer;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
-import com.hankcs.hanlp.seg.Dijkstra.DijkstraSegment;
 import com.hankcs.hanlp.seg.common.Term;
 
 import java.util.List;

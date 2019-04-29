@@ -12,15 +12,13 @@
 package com.hankcs.hanlp.corpus.dictionary;
 
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Map;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 2-gram词典制作工具
@@ -84,7 +82,7 @@ public class NGramDictionaryMaker
         }
         catch (Exception e)
         {
-            logger.warning("在保存NGram词典到" + path + "时发生异常" + e);
+            Predefine.logger.warning("在保存NGram词典到" + path + "时发生异常" + e);
             return false;
         }
 

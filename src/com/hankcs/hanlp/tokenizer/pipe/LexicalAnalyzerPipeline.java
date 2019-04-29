@@ -10,11 +10,11 @@
  */
 package com.hankcs.hanlp.tokenizer.pipe;
 
+import com.hankcs.hanlp.tokenizer.lexical.LexicalAnalyzer;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.model.perceptron.tagset.NERTagSet;
-import com.hankcs.hanlp.tokenizer.lexical.LexicalAnalyzer;
 
 import java.util.LinkedList;
 import java.util.List;

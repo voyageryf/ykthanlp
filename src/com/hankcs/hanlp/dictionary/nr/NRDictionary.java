@@ -12,9 +12,9 @@
 package com.hankcs.hanlp.dictionary.nr;
 
 
+import com.hankcs.hanlp.dictionary.common.EnumItemDictionary;
 import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
 import com.hankcs.hanlp.corpus.tag.NR;
-import com.hankcs.hanlp.dictionary.common.EnumItemDictionary;
 
 import java.util.TreeMap;
 

@@ -14,14 +14,13 @@ package com.hankcs.hanlp.classification.corpus;
 import com.hankcs.hanlp.classification.models.AbstractModel;
 import com.hankcs.hanlp.classification.tokenizers.HanLPTokenizer;
 import com.hankcs.hanlp.classification.tokenizers.ITokenizer;
-import com.hankcs.hanlp.utility.MathUtility;
 import com.hankcs.hanlp.classification.utilities.TextProcessUtility;
+import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
+import com.hankcs.hanlp.utility.MathUtility;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
 
 /**
  * @author hankcs
@@ -114,14 +113,14 @@ public abstract class AbstractDataSet implements IDataSet
 
         File[] folders = root.listFiles();
         if (folders == null) return null;
-        logger.start("模式:%s\n文本编码:%s\n根目录:%s\n加载中...\n", testingDataSet ? "测试集" : "训练集", charsetName, folderPath);
+        ConsoleLogger.logger.start("模式:%s\n文本编码:%s\n根目录:%s\n加载中...\n", testingDataSet ? "测试集" : "训练集", charsetName, folderPath);
         for (File folder : folders)
         {
             if (folder.isFile()) continue;
             File[] files = folder.listFiles();
             if (files == null) continue;
             String category = folder.getName();
-            logger.out("[%s]...", category);
+            ConsoleLogger.logger.out("[%s]...", category);
             int b, e;
             if (percentage > 0)
             {
@@ -140,12 +139,12 @@ public abstract class AbstractDataSet implements IDataSet
                 add(folder.getName(), TextProcessUtility.readTxt(files[i], charsetName));
                 if (i % logEvery == 0)
                 {
-                    logger.out("%c[%s]...%.2f%%", 13, category, MathUtility.percentage(i - b + 1, e - b));
+                    ConsoleLogger.logger.out("%c[%s]...%.2f%%", 13, category, MathUtility.percentage(i - b + 1, e - b));
                 }
             }
-            logger.out(" %d 篇文档\n", e - b);
+            ConsoleLogger.logger.out(" %d 篇文档\n", e - b);
         }
-        logger.finish(" 加载了 %d 个类目,共 %d 篇文档\n", getCatalog().size(), size());
+        ConsoleLogger.logger.finish(" 加载了 %d 个类目,共 %d 篇文档\n", getCatalog().size(), size());
         return this;
     }
 

@@ -10,13 +10,13 @@
  */
 package com.hankcs.hanlp.corpus.io;
 
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 流式的字节数组，降低读取时的内存峰值
@@ -41,7 +41,7 @@ public class ByteArrayFileStream extends ByteArrayStream
         }
         catch (Exception e)
         {
-            logger.warning(TextUtility.exceptionToString(e));
+            Predefine.logger.warning(TextUtility.exceptionToString(e));
             return null;
         }
     }
@@ -112,7 +112,7 @@ public class ByteArrayFileStream extends ByteArrayStream
         }
         catch (IOException e)
         {
-            logger.warning(TextUtility.exceptionToString(e));
+            Predefine.logger.warning(TextUtility.exceptionToString(e));
         }
     }
 }

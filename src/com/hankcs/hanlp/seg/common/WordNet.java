@@ -11,11 +11,11 @@
  */
 package com.hankcs.hanlp.seg.common;
 
+import com.hankcs.hanlp.seg.NShort.Path.AtomNode;
 import com.hankcs.hanlp.utility.MathUtility;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.dictionary.other.CharType;
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.hankcs.hanlp.seg.NShort.Path.AtomNode;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.Iterator;

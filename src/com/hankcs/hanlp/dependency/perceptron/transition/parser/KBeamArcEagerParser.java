@@ -5,23 +5,22 @@
 
 package com.hankcs.hanlp.dependency.perceptron.transition.parser;
 
-import com.hankcs.hanlp.corpus.io.IOUtil;
+import com.hankcs.hanlp.dependency.perceptron.accessories.CoNLLReader;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Edge;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
-import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
-import com.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
-import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
-import com.hankcs.hanlp.dependency.perceptron.accessories.CoNLLReader;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Pair;
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
+import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
+import com.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
 import com.hankcs.hanlp.dependency.perceptron.structures.Sentence;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.BeamElement;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.State;
+import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;

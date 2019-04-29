@@ -11,6 +11,7 @@
  */
 package com.hankcs.hanlp.dictionary.common;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
 import com.hankcs.hanlp.corpus.dependency.CoNll.PosTagCompiler;
 import com.hankcs.hanlp.corpus.synonym.Synonym;
@@ -24,9 +25,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.TreeMap;
 import com.hankcs.hanlp.corpus.synonym.Synonym.Type;
-import com.hankcs.hanlp.corpus.util.Precompiler;
 import com.hankcs.hanlp.dictionary.CoreBiGramTableDictionary;
-import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;
 import com.hankcs.hanlp.utility.Predefine;
 

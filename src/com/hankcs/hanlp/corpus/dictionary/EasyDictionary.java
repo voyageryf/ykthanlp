@@ -11,15 +11,14 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
+import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
 import com.hankcs.hanlp.dictionary.BaseSearcher;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.tag.Nature;
 
 import java.io.*;
 import java.util.*;
-
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 一个通用的、满足特定格式的双数组词典
@@ -39,7 +38,7 @@ public class EasyDictionary
         }
         else
         {
-            logger.warning("从" + path + "读取失败");
+            Predefine.logger.warning("从" + path + "读取失败");
         }
 
         return null;
@@ -47,12 +46,12 @@ public class EasyDictionary
 
     private boolean load(String path)
     {
-        logger.info("通用词典开始加载:" + path);
+        Predefine.logger.info("通用词典开始加载:" + path);
         TreeMap<String, Attribute> map = new TreeMap<String, Attribute>();
         BufferedReader br = null;
         try
         {
-            br = new BufferedReader(new InputStreamReader(IOAdapter == null ? new FileInputStream(path) : IOAdapter.open(path), "UTF-8"));
+            br = new BufferedReader(new InputStreamReader(HanLP.Config.IOAdapter == null ? new FileInputStream(path) : HanLP.Config.IOAdapter.open(path), "UTF-8"));
             String line;
             while ((line = br.readLine()) != null)
             {
@@ -67,22 +66,22 @@ public class EasyDictionary
                 }
                 map.put(param[0], attribute);
             }
-            logger.info("通用词典读入词条" + map.size());
+            Predefine.logger.info("通用词典读入词条" + map.size());
             br.close();
         }
         catch (FileNotFoundException e)
         {
-            logger.severe("通用词典" + path + "不存在！" + e);
+            Predefine.logger.severe("通用词典" + path + "不存在！" + e);
             return false;
         }
         catch (IOException e)
         {
-            logger.severe("通用词典" + path + "读取错误！" + e);
+            Predefine.logger.severe("通用词典" + path + "读取错误！" + e);
             return false;
         }
 
-        logger.info("通用词典DAT构建结果:" + trie.build(map));
-        logger.info("通用词典加载成功:" + trie.size() +"个词条" );
+        Predefine.logger.info("通用词典DAT构建结果:" + trie.build(map));
+        Predefine.logger.info("通用词典加载成功:" + trie.size() +"个词条" );
         return true;
     }
 

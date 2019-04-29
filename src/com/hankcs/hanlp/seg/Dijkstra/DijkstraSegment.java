@@ -20,6 +20,8 @@ import com.hankcs.hanlp.recognition.nt.OrganizationRecognition;
 import com.hankcs.hanlp.seg.Dijkstra.Path.State;
 import com.hankcs.hanlp.seg.WordBasedSegment;
 import com.hankcs.hanlp.seg.common.*;
+import com.hankcs.hanlp.seg.common.*;
+import com.hankcs.hanlp.seg.common.*;
 
 import java.util.*;
 

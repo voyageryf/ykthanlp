@@ -11,10 +11,10 @@
  */
 package com.hankcs.hanlp.tokenizer;
 
-import com.hankcs.hanlp.corpus.document.sentence.Sentence;
-import com.hankcs.hanlp.model.perceptron.PerceptronLexicalAnalyzer;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.lexical.AbstractLexicalAnalyzer;
+import com.hankcs.hanlp.corpus.document.sentence.Sentence;
+import com.hankcs.hanlp.model.perceptron.PerceptronLexicalAnalyzer;
 
 import java.io.IOException;
 import java.util.List;

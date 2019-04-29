@@ -11,14 +11,13 @@
  */
 package com.hankcs.hanlp.corpus.io;
 
+import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs
@@ -42,12 +41,12 @@ public class ByteArrayOtherStream extends ByteArrayStream
     {
         try
         {
-            InputStream is = IOAdapter == null ? new FileInputStream(path) : IOAdapter.open(path);
+            InputStream is = HanLP.Config.IOAdapter == null ? new FileInputStream(path) : HanLP.Config.IOAdapter.open(path);
             return createByteArrayOtherStream(is);
         }
         catch (Exception e)
         {
-            logger.warning(TextUtility.exceptionToString(e));
+            Predefine.logger.warning(TextUtility.exceptionToString(e));
             return null;
         }
     }
@@ -104,7 +103,7 @@ public class ByteArrayOtherStream extends ByteArrayStream
         }
         catch (IOException e)
         {
-            logger.warning(TextUtility.exceptionToString(e));
+            Predefine.logger.warning(TextUtility.exceptionToString(e));
         }
     }
 }

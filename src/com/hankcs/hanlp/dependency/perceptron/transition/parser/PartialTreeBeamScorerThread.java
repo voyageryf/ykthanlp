@@ -5,12 +5,12 @@
 
 package com.hankcs.hanlp.dependency.perceptron.transition.parser;
 
-import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.BeamElement;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.State;
+import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;

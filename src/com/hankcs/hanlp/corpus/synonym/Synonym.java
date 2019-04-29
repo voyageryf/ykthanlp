@@ -76,7 +76,7 @@ public class Synonym implements ISynonym
     }
 
     /**
-     * @see com.hankcs.hanlp.corpus.synonym.Synonym#create(String)
+     * @see Synonym#create(String)
      * @param args
      * @return
      */

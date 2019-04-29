@@ -5,9 +5,9 @@
 
 package com.hankcs.hanlp.dependency.perceptron.learning;
 
+import com.hankcs.hanlp.dependency.perceptron.structures.CompactArray;
 import com.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
 import com.hankcs.hanlp.dependency.perceptron.transition.parser.Action;
-import com.hankcs.hanlp.dependency.perceptron.structures.CompactArray;
 
 import java.util.HashMap;
 

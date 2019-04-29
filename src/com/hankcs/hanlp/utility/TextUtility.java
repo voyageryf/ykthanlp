@@ -1,6 +1,7 @@
 package com.hankcs.hanlp.utility;
 
 
+import com.hankcs.hanlp.dictionary.other.CharType;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
@@ -9,8 +10,6 @@ import java.io.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import static com.hankcs.hanlp.dictionary.other.CharType.*;
 
 /**
  * 文本工具类
@@ -32,7 +31,7 @@ public class TextUtility
     {
         if (str != null && str.length() > 0)
         {
-            if (Predefine.CHINESE_NUMBERS.contains(str)) return CT_CNUM;
+            if (Predefine.CHINESE_NUMBERS.contains(str)) return CharType.CT_CNUM;
             byte[] b;
             try
             {
@@ -49,30 +48,30 @@ public class TextUtility
             int ub2 = getUnsigned(b2);
             if (ub1 < 128)
             {
-                if (ub1 < 32) return CT_DELIMITER; // NON PRINTABLE CHARACTERS
-                if (' ' == b1) return CT_OTHER;
-                if ('\n' == b1) return CT_DELIMITER;
+                if (ub1 < 32) return CharType.CT_DELIMITER; // NON PRINTABLE CHARACTERS
+                if (' ' == b1) return CharType.CT_OTHER;
+                if ('\n' == b1) return CharType.CT_DELIMITER;
                 if ("*\"!,.?()[]{}+=/\\;:|".indexOf((char) b1) != -1)
-                    return CT_DELIMITER;
+                    return CharType.CT_DELIMITER;
                 if ("0123456789".indexOf((char)b1) != -1)
-                    return CT_NUM;
-                return CT_SINGLE;
+                    return CharType.CT_NUM;
+                return CharType.CT_SINGLE;
             }
             else if (ub1 == 162)
-                return CT_INDEX;
+                return CharType.CT_INDEX;
             else if (ub1 == 163 && ub2 > 175 && ub2 < 186)
-                return CT_NUM;
+                return CharType.CT_NUM;
             else if (ub1 == 163
                     && (ub2 >= 193 && ub2 <= 218 || ub2 >= 225
                     && ub2 <= 250))
-                return CT_LETTER;
+                return CharType.CT_LETTER;
             else if (ub1 == 161 || ub1 == 163)
-                return CT_DELIMITER;
+                return CharType.CT_DELIMITER;
             else if (ub1 >= 176 && ub1 <= 247)
-                return CT_CHINESE;
+                return CharType.CT_CHINESE;
 
         }
-        return CT_OTHER;
+        return CharType.CT_OTHER;
     }
 
     /**

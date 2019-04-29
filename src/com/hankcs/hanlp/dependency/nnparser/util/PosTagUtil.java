@@ -11,14 +11,9 @@
  */
 package com.hankcs.hanlp.dependency.nnparser.util;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.model.perceptron.PerceptronTrainer;
-import com.hankcs.hanlp.model.perceptron.instance.Instance;
-import com.hankcs.hanlp.model.perceptron.instance.InstanceHandler;
-import com.hankcs.hanlp.model.perceptron.utility.IOUtility;
-import com.hankcs.hanlp.model.perceptron.utility.Utility;
-import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.lexical.POSTagger;
 
 import java.util.*;

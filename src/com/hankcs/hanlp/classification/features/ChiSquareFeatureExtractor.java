@@ -1,8 +1,8 @@
 package com.hankcs.hanlp.classification.features;
 
+import com.hankcs.hanlp.classification.statistics.ContinuousDistributions;
 import com.hankcs.hanlp.algorithm.MaxHeap;
 import com.hankcs.hanlp.classification.corpus.IDataSet;
-import com.hankcs.hanlp.classification.statistics.ContinuousDistributions;
 
 import java.util.Comparator;
 import java.util.HashMap;

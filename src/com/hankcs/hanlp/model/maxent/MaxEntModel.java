@@ -21,8 +21,6 @@ import com.hankcs.hanlp.utility.TextUtility;
 import java.io.*;
 import java.util.*;
 
-import static com.hankcs.hanlp.utility.Predefine.logger;
-
 /**
  * 最大熵模型，采用双数组Trie树加速，值得拥有
  *
@@ -286,7 +284,7 @@ public class MaxEntModel
         }
         catch (Exception e)
         {
-            logger.severe("从" + path + "加载最大熵模型失败！" + TextUtility.exceptionToString(e));
+            Predefine.logger.severe("从" + path + "加载最大熵模型失败！" + TextUtility.exceptionToString(e));
             return null;
         }
         return m;

@@ -11,10 +11,10 @@
 package com.hankcs.hanlp.model.perceptron;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.model.perceptron.cli.Args;
 import com.hankcs.hanlp.model.perceptron.cli.Argument;
 import com.hankcs.hanlp.model.perceptron.common.TaskType;
-import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 
 import java.io.File;
 import java.io.IOException;

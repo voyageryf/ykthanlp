@@ -11,8 +11,8 @@
  */
 package com.hankcs.hanlp.seg.Viterbi.Path;
 
-import com.hankcs.hanlp.utility.MathUtility;
 import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.utility.MathUtility;
 
 /**
  * @author hankcs

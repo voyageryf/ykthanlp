@@ -10,7 +10,6 @@
  */
 package com.hankcs.hanlp.model.crf;
 
-import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.model.crf.crfpp.Encoder;

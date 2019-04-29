@@ -8,7 +8,6 @@ package com.hankcs.hanlp.dependency.perceptron.accessories;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.CompactTree;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

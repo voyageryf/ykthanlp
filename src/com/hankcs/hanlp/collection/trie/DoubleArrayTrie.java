@@ -15,6 +15,7 @@
  */
 package com.hankcs.hanlp.collection.trie;
 
+import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
 import com.hankcs.hanlp.corpus.io.ByteArray;
 import com.hankcs.hanlp.corpus.io.ByteArrayStream;
@@ -25,7 +26,6 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.*;
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
 
 /**
  * 双数组Trie树
@@ -523,7 +523,7 @@ public class DoubleArrayTrie<V> implements Serializable, ITrie<V>
      */
     public boolean load(String path, V[] value)
     {
-        if (!(IOAdapter == null ? loadBaseAndCheckByFileChannel(path) :
+        if (!(HanLP.Config.IOAdapter == null ? loadBaseAndCheckByFileChannel(path) :
         load(ByteArrayStream.createByteArrayStream(path), value)
         )) return false;
         v = value;
@@ -591,9 +591,9 @@ public class DoubleArrayTrie<V> implements Serializable, ITrie<V>
     {
         try
         {
-            DataInputStream in = new DataInputStream(new BufferedInputStream(IOAdapter == null ?
+            DataInputStream in = new DataInputStream(new BufferedInputStream(HanLP.Config.IOAdapter == null ?
                                                                                      new FileInputStream(path) :
-                    IOAdapter.open(path)
+                    HanLP.Config.IOAdapter.open(path)
             ));
             size = in.readInt();
             base = new int[size + 65535];   // 多留一些，防止越界
@@ -683,7 +683,7 @@ public class DoubleArrayTrie<V> implements Serializable, ITrie<V>
         ObjectInputStream in;
         try
         {
-            in = new ObjectInputStream(IOAdapter == null ? new FileInputStream(path) : IOAdapter.open(path));
+            in = new ObjectInputStream(HanLP.Config.IOAdapter == null ? new FileInputStream(path) : HanLP.Config.IOAdapter.open(path));
             return (DoubleArrayTrie<T>) in.readObject();
         }
         catch (Exception e)

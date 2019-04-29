@@ -11,10 +11,10 @@
  */
 package com.hankcs.hanlp.utility;
 
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.dictionary.CustomDictionary;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.tag.Nature;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;

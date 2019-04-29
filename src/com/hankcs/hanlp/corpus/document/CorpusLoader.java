@@ -12,6 +12,7 @@
 package com.hankcs.hanlp.corpus.document;
 
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.io.IOUtil;
@@ -19,8 +20,6 @@ import com.hankcs.hanlp.corpus.io.IOUtil;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs
@@ -61,7 +60,7 @@ public class CorpusLoader
             }
             catch (InterruptedException e)
             {
-                logger.warning("多线程异常" + e);
+                Predefine.logger.warning("多线程异常" + e);
             }
         }
         System.out.printf("花费时间%d ms\n", System.currentTimeMillis() - start);

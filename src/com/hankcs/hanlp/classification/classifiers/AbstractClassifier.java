@@ -11,25 +11,24 @@
  */
 package com.hankcs.hanlp.classification.classifiers;
 
+import com.hankcs.hanlp.classification.utilities.CollectionUtility;
+import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
 import com.hankcs.hanlp.classification.corpus.Document;
 import com.hankcs.hanlp.classification.corpus.IDataSet;
 import com.hankcs.hanlp.classification.corpus.MemoryDataSet;
 import com.hankcs.hanlp.classification.models.AbstractModel;
-import com.hankcs.hanlp.classification.utilities.CollectionUtility;
 import com.hankcs.hanlp.utility.MathUtility;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
-
 /**
  * @author hankcs
  */
 public abstract class AbstractClassifier implements IClassifier
 {
-    @Override
+//    @Override
     public IClassifier enableProbability(boolean enable)
     {
         return this;
@@ -48,7 +47,7 @@ public abstract class AbstractClassifier implements IClassifier
      * @throws IllegalArgumentException
      * @throws IllegalStateException
      */
-    @Override
+//    @Override
     public String classify(String text) throws IllegalArgumentException, IllegalStateException
     {
         Map<String, Double> scoreMap = predict(text);
@@ -56,7 +55,7 @@ public abstract class AbstractClassifier implements IClassifier
         return CollectionUtility.max(scoreMap);
     }
 
-    @Override
+//    @Override
     public String classify(Document document) throws IllegalArgumentException, IllegalStateException
     {
         Map<String, Double> scoreMap = predict(document);
@@ -64,7 +63,7 @@ public abstract class AbstractClassifier implements IClassifier
         return CollectionUtility.max(scoreMap);
     }
 
-    @Override
+//    @Override
     public void train(String folderPath, String charsetName) throws IOException
     {
         IDataSet dataSet = new MemoryDataSet();
@@ -72,35 +71,35 @@ public abstract class AbstractClassifier implements IClassifier
         train(dataSet);
     }
 
-    @Override
+//    @Override
     public void train(Map<String, String[]> trainingDataSet) throws IllegalArgumentException
     {
         IDataSet dataSet = new MemoryDataSet();
-        logger.start("正在构造训练数据集...");
+        ConsoleLogger.logger.start("正在构造训练数据集...");
         int total = trainingDataSet.size();
         int cur = 0;
         for (Map.Entry<String, String[]> entry : trainingDataSet.entrySet())
         {
             String category = entry.getKey();
-            logger.out("[%s]...", category);
+            ConsoleLogger.logger.out("[%s]...", category);
             for (String doc : entry.getValue())
             {
                 dataSet.add(category, doc);
             }
             ++cur;
-            logger.out("%.2f%%...", MathUtility.percentage(cur, total));
+            ConsoleLogger.logger.out("%.2f%%...", MathUtility.percentage(cur, total));
         }
-        logger.finish(" 加载完毕\n");
+        ConsoleLogger.logger.finish(" 加载完毕\n");
         train(dataSet);
     }
 
-    @Override
+//    @Override
     public void train(String folderPath) throws IOException
     {
         train(folderPath, "UTF-8");
     }
 
-    @Override
+//    @Override
     public Map<String, Double> predict(Document document)
     {
         AbstractModel model = getModel();
@@ -122,7 +121,7 @@ public abstract class AbstractClassifier implements IClassifier
         return scoreMap;
     }
 
-    @Override
+//    @Override
     public int label(Document document) throws IllegalArgumentException, IllegalStateException
     {
         AbstractModel model = getModel();

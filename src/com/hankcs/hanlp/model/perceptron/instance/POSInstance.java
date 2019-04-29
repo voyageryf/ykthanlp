@@ -10,12 +10,10 @@
  */
 package com.hankcs.hanlp.model.perceptron.instance;
 
-import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
-import com.hankcs.hanlp.model.perceptron.feature.MutableFeatureMap;
-import com.hankcs.hanlp.model.perceptron.tagset.POSTagSet;
-import com.hankcs.hanlp.model.perceptron.utility.Utility;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
+import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
+import com.hankcs.hanlp.model.perceptron.tagset.POSTagSet;
 
 import java.util.ArrayList;
 import java.util.List;

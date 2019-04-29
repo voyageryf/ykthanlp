@@ -1,7 +1,7 @@
 package com.hankcs.hanlp.dependency.perceptron.structures;
 
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
 
 import java.io.*;

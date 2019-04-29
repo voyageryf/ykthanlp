@@ -16,16 +16,11 @@ import com.hankcs.hanlp.collection.trie.ITrie;
 import com.hankcs.hanlp.corpus.io.ByteArray;
 import com.hankcs.hanlp.corpus.io.ICacheAble;
 import com.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.model.crf.crfpp.Model;
 import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.util.*;
-
-import static com.hankcs.hanlp.utility.Predefine.BIN_EXT;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 这份代码目前做到了与CRF++解码结果完全一致。也可以直接使用移植版的CRF++ {@link CRFLexicalAnalyzer}
@@ -89,10 +84,10 @@ public class CRFModel implements ICacheAble
         if (CRFModel.load(ByteArray.createByteArray(path + Predefine.BIN_EXT))) return CRFModel;
         IOUtil.LineIterator lineIterator = new IOUtil.LineIterator(path);
         if (!lineIterator.hasNext()) return null;
-        logger.info(lineIterator.next());   // verson
-        logger.info(lineIterator.next());   // cost-factor
+        Predefine.logger.info(lineIterator.next());   // verson
+        Predefine.logger.info(lineIterator.next());   // cost-factor
         int maxid = Integer.parseInt(lineIterator.next().substring("maxid:".length()).trim());
-        logger.info(lineIterator.next());   // xsize
+        Predefine.logger.info(lineIterator.next());   // xsize
         lineIterator.next();    // blank
         String line;
         int id = 0;
@@ -165,22 +160,22 @@ public class CRFModel implements ICacheAble
         }
         if (lineIterator.hasNext())
         {
-            logger.warning("文本读取有残留，可能会出问题！" + path);
+            Predefine.logger.warning("文本读取有残留，可能会出问题！" + path);
         }
         lineIterator.close();
-        logger.info("开始构建trie树");
+        Predefine.logger.info("开始构建trie树");
         CRFModel.featureFunctionTrie.build(featureFunctionMap);
         // 缓存bin
         try
         {
-            logger.info("开始缓存" + path + Predefine.BIN_EXT);
+            Predefine.logger.info("开始缓存" + path + Predefine.BIN_EXT);
             DataOutputStream out = new DataOutputStream(IOUtil.newOutputStream(path + Predefine.BIN_EXT));
             CRFModel.save(out);
             out.close();
         }
         catch (Exception e)
         {
-            logger.warning("在缓存" + path + Predefine.BIN_EXT + "时发生错误" + TextUtility.exceptionToString(e));
+            Predefine.logger.warning("在缓存" + path + Predefine.BIN_EXT + "时发生错误" + TextUtility.exceptionToString(e));
         }
         CRFModel.onLoadTxtFinished();
         return CRFModel;
@@ -385,7 +380,7 @@ public class CRFModel implements ICacheAble
         }
         catch (Exception e)
         {
-            logger.warning("缓存载入失败，可能是由于版本变迁带来的不兼容。具体异常是：\n" + TextUtility.exceptionToString(e));
+            Predefine.logger.warning("缓存载入失败，可能是由于版本变迁带来的不兼容。具体异常是：\n" + TextUtility.exceptionToString(e));
             return false;
         }
 
@@ -413,7 +408,7 @@ public class CRFModel implements ICacheAble
      */
     public static CRFModel load(String path)
     {
-        CRFModel model = loadBin(path + BIN_EXT);
+        CRFModel model = loadBin(path + Predefine.BIN_EXT);
         if (model != null) return model;
         return loadTxt(path, new CRFModel(new DoubleArrayTrie<FeatureFunction>()));
     }

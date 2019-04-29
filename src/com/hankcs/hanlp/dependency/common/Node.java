@@ -11,10 +11,10 @@
  */
 package com.hankcs.hanlp.dependency.common;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
 import com.hankcs.hanlp.corpus.dependency.CoNll.PosTagCompiler;
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.hankcs.hanlp.seg.common.Term;
 
 import java.util.Map;
 import java.util.TreeMap;

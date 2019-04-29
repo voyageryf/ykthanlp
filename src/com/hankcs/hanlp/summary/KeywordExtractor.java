@@ -16,7 +16,6 @@ import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
 

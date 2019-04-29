@@ -19,7 +19,6 @@ import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.utility.Predefine;
 
-import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import static com.hankcs.hanlp.utility.Predefine.logger;
 

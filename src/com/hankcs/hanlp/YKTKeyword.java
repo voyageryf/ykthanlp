@@ -10,11 +10,11 @@
  */
 package com.hankcs.hanlp;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.dictionary.CoreSynonymDictionary;
 import com.hankcs.hanlp.dictionary.CustomDictionary;
 import com.hankcs.hanlp.dictionary.stopword.CoreStopWordDictionary;
 import com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer;
-import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NLPTokenizer;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;
 

@@ -38,9 +38,9 @@ public class DocVectorModel extends AbstractVectorModel<Integer>
      * @param content 文档内容
      * @return 文档向量
      */
-    public Vector addDocument(int id, String content)
+    public com.hankcs.hanlp.mining.word2vec.Vector addDocument(int id, String content)
     {
-        Vector result = query(content);
+        com.hankcs.hanlp.mining.word2vec.Vector result = query(content);
         if (result == null) return null;
         storage.put(id, result);
         return result;
@@ -65,15 +65,15 @@ public class DocVectorModel extends AbstractVectorModel<Integer>
      * @param content 文档
      * @return 向量
      */
-    public Vector query(String content)
+    public com.hankcs.hanlp.mining.word2vec.Vector query(String content)
     {
         if (content == null || content.length() == 0) return null;
         List<Term> termList = NotionalTokenizer.segment(content);
-        Vector result = new Vector(dimension());
+        com.hankcs.hanlp.mining.word2vec.Vector result = new com.hankcs.hanlp.mining.word2vec.Vector(dimension());
         int n = 0;
         for (Term term : termList)
         {
-            Vector vector = wordVectorModel.vector(term.word);
+            com.hankcs.hanlp.mining.word2vec.Vector vector = wordVectorModel.vector(term.word);
             if (vector == null)
             {
                 continue;
@@ -103,7 +103,7 @@ public class DocVectorModel extends AbstractVectorModel<Integer>
      */
     public float similarity(String what, String with)
     {
-        Vector A = query(what);
+        com.hankcs.hanlp.mining.word2vec.Vector A = query(what);
         if (A == null) return -1f;
         Vector B = query(with);
         if (B == null) return -1f;

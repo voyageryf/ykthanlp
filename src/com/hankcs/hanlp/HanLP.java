@@ -1,6 +1,12 @@
 
 package com.hankcs.hanlp;
 
+import com.hankcs.hanlp.dictionary.ts.*;
+import com.hankcs.hanlp.seg.NShort.NShortSegment;
+import com.hankcs.hanlp.seg.Other.DoubleArrayTrieSegment;
+import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.dictionary.ts.*;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.io.IIOAdapter;
 import com.hankcs.hanlp.dependency.nnparser.NeuralNetworkDependencyParser;
@@ -14,13 +20,7 @@ import com.hankcs.hanlp.mining.word.NewWordDiscover;
 import com.hankcs.hanlp.mining.word.WordInfo;
 import com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer;
 import com.hankcs.hanlp.model.perceptron.PerceptronLexicalAnalyzer;
-import com.hankcs.hanlp.seg.CRF.CRFSegment;
-import com.hankcs.hanlp.seg.HMM.HMMSegment;
-import com.hankcs.hanlp.seg.NShort.NShortSegment;
-import com.hankcs.hanlp.seg.Other.DoubleArrayTrieSegment;
-import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.Viterbi.ViterbiSegment;
-import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.summary.TextRankKeyword;
 import com.hankcs.hanlp.summary.TextRankSentence;
 import com.hankcs.hanlp.tokenizer.StandardTokenizer;
@@ -158,7 +158,7 @@ public class HanLP
         /**
          * CRF分词模型
          *
-         * @deprecated 已废弃，请使用{@link com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer}。未来版本将不再发布该模型，并删除配置项
+         * @deprecated 已废弃，请使用{@link CRFLexicalAnalyzer}。未来版本将不再发布该模型，并删除配置项
          */
         public static String CRFSegmentModelPath = "data/model/segment/CRFSegmentModel.txt";
         /**
@@ -414,7 +414,7 @@ public class HanLP
     }
 
     /**
-     * 简转繁,是{@link com.hankcs.hanlp.HanLP#convertToTraditionalChinese(java.lang.String)}的简称
+     * 简转繁,是{@link HanLP#convertToTraditionalChinese(java.lang.String)}的简称
      *
      * @param s 简体中文
      * @return 繁体中文(大陆标准)

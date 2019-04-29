@@ -12,8 +12,8 @@
 package com.hankcs.hanlp.model.perceptron.model;
 
 import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
-import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
 import com.hankcs.hanlp.model.perceptron.instance.Instance;
+import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
 
 /**
  * 结构化感知机算法学习的线性模型

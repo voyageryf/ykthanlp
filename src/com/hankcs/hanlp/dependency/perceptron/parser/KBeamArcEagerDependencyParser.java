@@ -11,16 +11,16 @@
 package com.hankcs.hanlp.dependency.perceptron.parser;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.dependency.perceptron.accessories.Evaluator;
+import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
+import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
 import com.hankcs.hanlp.dependency.AbstractDependencyParser;
-import com.hankcs.hanlp.dependency.perceptron.accessories.Evaluator;
-import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 import com.hankcs.hanlp.dependency.perceptron.transition.parser.KBeamArcEagerParser;
 import com.hankcs.hanlp.model.perceptron.PerceptronLexicalAnalyzer;
-import com.hankcs.hanlp.seg.Segment;
-import com.hankcs.hanlp.seg.common.Term;
 
 import java.io.File;
 import java.io.IOException;

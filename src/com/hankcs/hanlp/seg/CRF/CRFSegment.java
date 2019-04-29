@@ -11,6 +11,7 @@
  */
 package com.hankcs.hanlp.seg.CRF;
 
+import com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer;
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 import com.hankcs.hanlp.corpus.tag.Nature;
@@ -34,7 +35,7 @@ import static com.hankcs.hanlp.utility.Predefine.logger;
  * 基于CRF的分词器
  *
  * @author hankcs
- * @deprecated 已废弃，请使用{@link com.hankcs.hanlp.model.crf.CRFLexicalAnalyzer}
+ * @deprecated 已废弃，请使用{@link CRFLexicalAnalyzer}
  */
 public class CRFSegment extends CharacterBasedSegment
 {

@@ -11,7 +11,6 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
-import com.hankcs.hanlp.corpus.dictionary.SuffixDictionary;
 import com.hankcs.hanlp.utility.Predefine;
 
 /**

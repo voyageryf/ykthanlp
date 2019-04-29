@@ -11,6 +11,14 @@
  */
 package com.hankcs.hanlp.seg;
 
+import com.hankcs.hanlp.seg.NShort.Path.AtomNode;
+import com.hankcs.hanlp.seg.common.Graph;
+import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.seg.common.WordNet;
+import com.hankcs.hanlp.dictionary.CoreDictionary;
+import com.hankcs.hanlp.dictionary.CoreDictionaryTransformMatrixDictionary;
+import com.hankcs.hanlp.dictionary.CustomDictionary;
 import com.hankcs.hanlp.algorithm.Viterbi;
 import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
 import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
@@ -18,10 +26,6 @@ import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.*;
 import com.hankcs.hanlp.dictionary.other.CharType;
 import com.hankcs.hanlp.seg.NShort.Path.*;
-import com.hankcs.hanlp.seg.common.Graph;
-import com.hankcs.hanlp.seg.common.Term;
-import com.hankcs.hanlp.seg.common.Vertex;
-import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.util.*;

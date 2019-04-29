@@ -14,7 +14,6 @@ package com.hankcs.hanlp.corpus.util;
 import com.hankcs.hanlp.corpus.dependency.CoNll.PosTagCompiler;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
-import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.List;
 

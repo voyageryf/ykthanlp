@@ -11,9 +11,9 @@
  */
 package com.hankcs.hanlp.dependency;
 
-import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 
 import java.util.List;
 import java.util.Map;

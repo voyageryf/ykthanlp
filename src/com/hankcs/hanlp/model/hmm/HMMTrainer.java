@@ -11,7 +11,6 @@
 package com.hankcs.hanlp.model.hmm;
 
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
-import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.model.perceptron.instance.InstanceHandler;
 import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
 import com.hankcs.hanlp.model.perceptron.utility.IOUtility;

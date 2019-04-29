@@ -14,9 +14,8 @@ package com.hankcs.hanlp.suggest;
 
 import com.hankcs.hanlp.suggest.scorer.BaseScorer;
 import com.hankcs.hanlp.suggest.scorer.IScorer;
-import com.hankcs.hanlp.suggest.scorer.editdistance.EditDistanceScorer;
-import com.hankcs.hanlp.suggest.scorer.lexeme.IdVector;
 import com.hankcs.hanlp.suggest.scorer.lexeme.IdVectorScorer;
+import com.hankcs.hanlp.suggest.scorer.editdistance.EditDistanceScorer;
 import com.hankcs.hanlp.suggest.scorer.pinyin.PinyinScorer;
 
 import java.util.*;

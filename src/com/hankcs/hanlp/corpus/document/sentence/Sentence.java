@@ -11,11 +11,12 @@
  */
 package com.hankcs.hanlp.corpus.document.sentence;
 
+import com.hankcs.hanlp.dictionary.other.PartOfSpeechTagDictionary;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.CompoundWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.document.sentence.word.WordFactory;
-import com.hankcs.hanlp.dictionary.other.PartOfSpeechTagDictionary;
 import com.hankcs.hanlp.model.perceptron.tagset.NERTagSet;
 import com.hankcs.hanlp.model.perceptron.utility.Utility;
 
@@ -26,8 +27,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 句子，指的是以。！等标点结尾的句子
@@ -230,7 +229,7 @@ public class Sentence implements Serializable, Iterable<IWord>
             IWord word = WordFactory.create(single);
             if (word == null)
             {
-                logger.warning("在用 " + single + " 构造单词时失败，句子构造参数为 " + param);
+                Predefine.logger.warning("在用 " + single + " 构造单词时失败，句子构造参数为 " + param);
                 return null;
             }
             wordList.add(word);

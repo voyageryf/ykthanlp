@@ -13,9 +13,7 @@ package com.hankcs.hanlp.dictionary.ts;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
-import com.hankcs.hanlp.dictionary.other.CharTable;
 
-import java.util.Map;
 import java.util.TreeMap;
 
 import static com.hankcs.hanlp.utility.Predefine.logger;

@@ -12,10 +12,12 @@
 package com.hankcs.hanlp.corpus.document.sentence.word;
 
 
+import com.hankcs.hanlp.utility.Predefine;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import static com.hankcs.hanlp.utility.Predefine.logger;
+
 /**
  * 复合词，由两个或以上的word构成
  * @author hankcs
@@ -121,7 +123,7 @@ public class CompoundWord implements IWord, Iterable<Word>
             Word word = Word.create(single);
             if (word == null)
             {
-                logger.warning("使用参数" + single + "构造单词时发生错误");
+                Predefine.logger.warning("使用参数" + single + "构造单词时发生错误");
                 return null;
             }
             wordList.add(word);

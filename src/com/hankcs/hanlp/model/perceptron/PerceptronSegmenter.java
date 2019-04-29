@@ -12,14 +12,14 @@
 package com.hankcs.hanlp.model.perceptron;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.corpus.document.sentence.Sentence;
+import com.hankcs.hanlp.model.perceptron.common.TaskType;
 import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
 import com.hankcs.hanlp.model.perceptron.instance.CWSInstance;
-import com.hankcs.hanlp.model.perceptron.model.LinearModel;
-import com.hankcs.hanlp.model.perceptron.common.TaskType;
 import com.hankcs.hanlp.model.perceptron.instance.Instance;
+import com.hankcs.hanlp.model.perceptron.model.LinearModel;
 import com.hankcs.hanlp.model.perceptron.tagset.CWSTagSet;
 import com.hankcs.hanlp.model.perceptron.utility.Utility;
-import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.tokenizer.lexical.Segmenter;
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class PerceptronSegmenter extends PerceptronTagger implements Segmenter
 {
-    private final CWSTagSet CWSTagSet;
+    private final com.hankcs.hanlp.model.perceptron.tagset.CWSTagSet CWSTagSet;
 
     public PerceptronSegmenter(LinearModel cwsModel)
     {

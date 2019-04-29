@@ -17,10 +17,6 @@ import com.hankcs.hanlp.seg.common.Vertex;
 import java.util.Map;
 import java.util.Set;
 
-import static com.hankcs.hanlp.utility.Predefine.MAX_FREQUENCY;
-import static com.hankcs.hanlp.utility.Predefine.dSmoothingPara;
-import static com.hankcs.hanlp.utility.Predefine.dTemp;
-
 /**
  * 一些数学小工具
  * @author hankcs
@@ -136,7 +132,7 @@ public class MathUtility
         }
 //        int nTwoWordsFreq = BiGramDictionary.getBiFrequency(from.word, to.word);
         int nTwoWordsFreq = CoreBiGramTableDictionary.getBiFrequency(from.wordID, to.wordID);
-        double value = -Math.log(dSmoothingPara * frequency / (MAX_FREQUENCY) + (1 - dSmoothingPara) * ((1 - dTemp) * nTwoWordsFreq / frequency + dTemp));
+        double value = -Math.log(Predefine.dSmoothingPara * frequency / (Predefine.MAX_FREQUENCY) + (1 - Predefine.dSmoothingPara) * ((1 - Predefine.dTemp) * nTwoWordsFreq / frequency + Predefine.dTemp));
         if (value < 0.0)
         {
             value = -value;

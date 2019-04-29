@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.seg.common.Vertex;
 import com.hankcs.hanlp.algorithm.Viterbi;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.dictionary.CoreDictionaryTransformMatrixDictionary;
 import com.hankcs.hanlp.dictionary.CustomDictionary;
-import com.hankcs.hanlp.seg.common.Term;
-import com.hankcs.hanlp.seg.common.Vertex;
 
 /**
  * 基于“由字构词”方法分词器基类

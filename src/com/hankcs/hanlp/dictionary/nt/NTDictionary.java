@@ -12,9 +12,9 @@
 package com.hankcs.hanlp.dictionary.nt;
 
 
+import com.hankcs.hanlp.dictionary.common.EnumItemDictionary;
 import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
 import com.hankcs.hanlp.corpus.tag.NT;
-import com.hankcs.hanlp.dictionary.common.EnumItemDictionary;
 
 /**
  * 一个好用的地名词典

@@ -13,9 +13,9 @@ package com.hankcs.hanlp.model.perceptron.utility;
 
 import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.model.perceptron.instance.Instance;
 import com.hankcs.hanlp.model.perceptron.instance.InstanceHandler;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.model.perceptron.model.LinearModel;
 
 import java.io.*;

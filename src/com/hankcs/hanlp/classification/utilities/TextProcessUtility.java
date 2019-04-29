@@ -1,7 +1,7 @@
 package com.hankcs.hanlp.classification.utilities;
 
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
 
 import java.io.File;

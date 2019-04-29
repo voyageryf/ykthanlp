@@ -11,17 +11,16 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
+import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 import com.hankcs.hanlp.corpus.dictionary.item.Item;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.*;
 import java.util.*;
-
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 一个通用的词典制作工具，词条格式：词 标签 频次
@@ -101,15 +100,15 @@ public class DictionaryMaker implements ISaveAble
         List<Item> itemList = new LinkedList<Item>();
         try
         {
-            BufferedReader br = new BufferedReader(new InputStreamReader(IOAdapter == null ? new FileInputStream(path) :
-                                                                                 IOAdapter.open(path), "UTF-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(HanLP.Config.IOAdapter == null ? new FileInputStream(path) :
+                                                                                 HanLP.Config.IOAdapter.open(path), "UTF-8"));
             String line;
             while ((line = br.readLine()) != null)
             {
                 Item item = Item.create(line);
                 if (item == null)
                 {
-                    logger.warning("使用【" + line + "】创建Item失败");
+                    Predefine.logger.warning("使用【" + line + "】创建Item失败");
                     return null;
 //                    continue;
                 }
@@ -118,7 +117,7 @@ public class DictionaryMaker implements ISaveAble
         }
         catch (Exception e)
         {
-            logger.warning("读取词典" + path + "发生异常" + e);
+            Predefine.logger.warning("读取词典" + path + "发生异常" + e);
             return null;
         }
 
@@ -239,7 +238,7 @@ public class DictionaryMaker implements ISaveAble
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
         for (String path : pathArray)
         {
-            logger.warning("正在处理" + path);
+            Predefine.logger.warning("正在处理" + path);
             dictionaryMaker.addAll(DictionaryMaker.loadAsItemList(path));
         }
         return dictionaryMaker;
@@ -254,11 +253,11 @@ public class DictionaryMaker implements ISaveAble
     public static DictionaryMaker combineWithNormalization(String[] pathArray)
     {
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
-        logger.info("正在处理主词典" + pathArray[0]);
+        Predefine.logger.info("正在处理主词典" + pathArray[0]);
         dictionaryMaker.addAll(DictionaryMaker.loadAsItemList(pathArray[0]));
         for (int i = 1; i < pathArray.length; ++i)
         {
-            logger.info("正在处理副词典" + pathArray[i] + "，将执行新词合并模式");
+            Predefine.logger.info("正在处理副词典" + pathArray[i] + "，将执行新词合并模式");
             dictionaryMaker.addAllNotCombine(DictionaryMaker.loadAsItemList(pathArray[i]));
         }
         return dictionaryMaker;
@@ -273,11 +272,11 @@ public class DictionaryMaker implements ISaveAble
     public static DictionaryMaker combineWhenNotInclude(String[] pathArray)
     {
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
-        logger.info("正在处理主词典" + pathArray[0]);
+        Predefine.logger.info("正在处理主词典" + pathArray[0]);
         dictionaryMaker.addAll(DictionaryMaker.loadAsItemList(pathArray[0]));
         for (int i = 1; i < pathArray.length; ++i)
         {
-            logger.info("正在处理副词典" + pathArray[i] + "，并且过滤已有词典");
+            Predefine.logger.info("正在处理副词典" + pathArray[i] + "，并且过滤已有词典");
             dictionaryMaker.addAllNotCombine(DictionaryMaker.normalizeFrequency(DictionaryMaker.loadAsItemList(pathArray[i])));
         }
         return dictionaryMaker;
@@ -308,7 +307,7 @@ public class DictionaryMaker implements ISaveAble
         }
         catch (Exception e)
         {
-            logger.warning("保存到" + path + "失败" + e);
+            Predefine.logger.warning("保存到" + path + "失败" + e);
             return false;
         }
 
@@ -356,7 +355,7 @@ public class DictionaryMaker implements ISaveAble
         }
         catch (Exception e)
         {
-            logger.warning("保存到" + path + "失败" + e);
+            Predefine.logger.warning("保存到" + path + "失败" + e);
             return false;
         }
 

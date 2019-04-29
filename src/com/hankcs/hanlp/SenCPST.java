@@ -1,7 +1,6 @@
 package com.hankcs.hanlp;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
-import com.hankcs.hanlp.dependency.nnparser.NeuralNetworkDependencyParser;
 
 /**
  * 此程序的作用是在于判断答案中的句子成分是否过于单一

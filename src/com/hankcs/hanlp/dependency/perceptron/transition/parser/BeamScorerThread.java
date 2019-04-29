@@ -6,15 +6,13 @@
 package com.hankcs.hanlp.dependency.perceptron.transition.parser;
 
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
-import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.BeamElement;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.State;
+import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
-
-import static com.hankcs.hanlp.dependency.perceptron.transition.parser.PartialTreeBeamScorerThread.addAvailableBeamElements;
 
 
 public class BeamScorerThread implements Callable<ArrayList<BeamElement>>
@@ -53,7 +51,7 @@ public class BeamScorerThread implements Callable<ArrayList<BeamElement>>
         boolean canLeftArc = ArcEager.canDo(Action.LeftArc, currentState);
         Object[] features = FeatureExtractor.extractAllParseFeatures(configuration, featureLength);
 
-        addAvailableBeamElements(elements, prevScore, canShift, canReduce, canRightArc, canLeftArc, features, classifier, isDecode, b, dependencyRelations);
+        PartialTreeBeamScorerThread.addAvailableBeamElements(elements, prevScore, canShift, canReduce, canRightArc, canLeftArc, features, classifier, isDecode, b, dependencyRelations);
         return elements;
     }
 }

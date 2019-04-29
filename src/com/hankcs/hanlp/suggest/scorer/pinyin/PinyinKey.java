@@ -110,7 +110,7 @@ public class PinyinKey implements Comparable<PinyinKey>, ISentenceKey<PinyinKey>
         int firstCharArrayLength = firstCharArray.length + 1;
         return
                 1.0 / (EditDistance.compute(pyOrdinalArray, other.pyOrdinalArray) + 1) +
-                (double)LongestCommonSubstring.compute(firstCharArray, other.firstCharArray) / firstCharArrayLength;
+                (double) LongestCommonSubstring.compute(firstCharArray, other.firstCharArray) / firstCharArrayLength;
     }
 
     /**

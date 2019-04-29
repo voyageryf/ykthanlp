@@ -27,9 +27,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.*;
 
-import static com.hankcs.hanlp.utility.Predefine.BIN_EXT;
-import static com.hankcs.hanlp.utility.Predefine.logger;
-
 /**
  * 对数线性模型形式的CRF模型
  *
@@ -78,7 +75,7 @@ public class LogLinearModel extends LinearModel
     public LogLinearModel(String modelFile) throws IOException
     {
         super(null, null);
-        if (modelFile.endsWith(BIN_EXT))
+        if (modelFile.endsWith(Predefine.BIN_EXT))
         {
             load(modelFile); // model.bin
             return;
@@ -119,10 +116,10 @@ public class LogLinearModel extends LinearModel
         TagSet tagSet = new TagSet(TaskType.CLASSIFICATION);
         IOUtil.LineIterator lineIterator = new IOUtil.LineIterator(txtFile);
         if (!lineIterator.hasNext()) throw new IOException("空白文件");
-        logger.info(lineIterator.next());   // verson
-        logger.info(lineIterator.next());   // cost-factor
+        Predefine.logger.info(lineIterator.next());   // verson
+        Predefine.logger.info(lineIterator.next());   // cost-factor
         int maxid = Integer.parseInt(lineIterator.next().substring("maxid:".length()).trim());
-        logger.info(lineIterator.next());   // xsize
+        Predefine.logger.info(lineIterator.next());   // xsize
         lineIterator.next();    // blank
         String line;
         while ((line = lineIterator.next()).length() != 0)
@@ -202,10 +199,10 @@ public class LogLinearModel extends LinearModel
         }
         if (lineIterator.hasNext())
         {
-            logger.warning("文本读取有残留，可能会出问题！" + txtFile);
+            Predefine.logger.warning("文本读取有残留，可能会出问题！" + txtFile);
         }
         lineIterator.close();
-        logger.info("文本读取结束，开始转换模型");
+        Predefine.logger.info("文本读取结束，开始转换模型");
         int transitionFeatureOffset = (sizeOfTagSet + 1) * sizeOfTagSet;
         parameter = new float[transitionFeatureOffset + featureFunctionMap.size() * sizeOfTagSet];
         if (matrix != null)

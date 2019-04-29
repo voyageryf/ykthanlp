@@ -11,6 +11,7 @@
  */
 package com.hankcs.hanlp.seg.NShort;
 
+import com.hankcs.hanlp.seg.NShort.Path.NShortPath;
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.algorithm.Dijkstra;
 import com.hankcs.hanlp.recognition.nr.JapanesePersonRecognition;

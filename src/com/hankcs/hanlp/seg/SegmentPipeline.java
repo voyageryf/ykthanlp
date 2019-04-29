@@ -10,10 +10,10 @@
  */
 package com.hankcs.hanlp.seg;
 
+import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.pipe.Pipe;
 
 import java.util.*;

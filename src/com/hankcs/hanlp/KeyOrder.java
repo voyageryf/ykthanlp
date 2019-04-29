@@ -2,9 +2,8 @@ package com.hankcs.hanlp;
 
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
-import com.hankcs.hanlp.dependency.IDependencyParser;
 import com.hankcs.hanlp.dictionary.CoreSynonymDictionary;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 

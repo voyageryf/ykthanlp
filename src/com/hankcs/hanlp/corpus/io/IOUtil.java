@@ -12,9 +12,11 @@
 package com.hankcs.hanlp.corpus.io;
 
 
+import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.utility.LexiconUtility;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.*;
@@ -22,9 +24,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.*;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
 
 /**
  * 一些常用的IO操作
@@ -50,7 +49,7 @@ public class IOUtil
         }
         catch (IOException e)
         {
-            logger.warning("在保存对象" + o + "到" + path + "时发生异常" + e);
+            Predefine.logger.warning("在保存对象" + o + "到" + path + "时发生异常" + e);
             return false;
         }
 
@@ -75,7 +74,7 @@ public class IOUtil
         }
         catch (Exception e)
         {
-            logger.warning("在从" + path + "读取对象时发生异常" + e);
+            Predefine.logger.warning("在从" + path + "读取对象时发生异常" + e);
         }
 
         return null;
@@ -92,8 +91,8 @@ public class IOUtil
         if (path == null) return null;
         try
         {
-            InputStream in = IOAdapter == null ? new FileInputStream(path) :
-                    IOAdapter.open(path);
+            InputStream in = HanLP.Config.IOAdapter == null ? new FileInputStream(path) :
+                    HanLP.Config.IOAdapter.open(path);
             byte[] fileContent = new byte[in.available()];
             int read = readBytesFromOtherInputStream(in, fileContent);
             in.close();
@@ -104,12 +103,12 @@ public class IOUtil
         }
         catch (FileNotFoundException e)
         {
-            logger.warning("找不到" + path + e);
+            Predefine.logger.warning("找不到" + path + e);
             return null;
         }
         catch (IOException e)
         {
-            logger.warning("读取" + path + "发生IO异常" + e);
+            Predefine.logger.warning("读取" + path + "发生IO异常" + e);
             return null;
         }
     }
@@ -142,8 +141,8 @@ public class IOUtil
         }
         catch (Exception e)
         {
-            logger.throwing("IOUtil", "saveTxt", e);
-            logger.warning("IOUtil saveTxt 到" + path + "失败" + e.toString());
+            Predefine.logger.throwing("IOUtil", "saveTxt", e);
+            Predefine.logger.warning("IOUtil saveTxt 到" + path + "失败" + e.toString());
             return false;
         }
         return true;
@@ -175,9 +174,9 @@ public class IOUtil
     {
         try
         {
-            if (IOAdapter == null) return readBytesFromFileInputStream(new FileInputStream(path));
+            if (HanLP.Config.IOAdapter == null) return readBytesFromFileInputStream(new FileInputStream(path));
 
-            InputStream is = IOAdapter.open(path);
+            InputStream is = HanLP.Config.IOAdapter.open(path);
             if (is instanceof FileInputStream)
                 return readBytesFromFileInputStream((FileInputStream) is);
             else
@@ -185,7 +184,7 @@ public class IOUtil
         }
         catch (Exception e)
         {
-            logger.warning("读取" + path + "时发生异常" + e);
+            Predefine.logger.warning("读取" + path + "时发生异常" + e);
         }
 
         return null;
@@ -193,7 +192,7 @@ public class IOUtil
 
     public static String readTxt(String file, String charsetName) throws IOException
     {
-        InputStream is = IOAdapter.open(file);
+        InputStream is = HanLP.Config.IOAdapter.open(file);
         byte[] targetArray = new byte[is.available()];
         int len;
         int off = 0;
@@ -344,7 +343,7 @@ public class IOUtil
         }
         catch (Exception e)
         {
-            logger.warning("加载" + path + "失败，" + e);
+            Predefine.logger.warning("加载" + path + "失败，" + e);
         }
 
         return result;
@@ -476,7 +475,7 @@ public class IOUtil
             }
             catch (IOException e)
             {
-                logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
+                Predefine.logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
                 bw = null;
             }
         }
@@ -491,12 +490,12 @@ public class IOUtil
             }
             catch (FileNotFoundException e)
             {
-                logger.warning("文件" + path + "不存在，接下来的调用会返回null\n" + TextUtility.exceptionToString(e));
+                Predefine.logger.warning("文件" + path + "不存在，接下来的调用会返回null\n" + TextUtility.exceptionToString(e));
                 bw = null;
             }
             catch (IOException e)
             {
-                logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
+                Predefine.logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
                 bw = null;
             }
         }
@@ -511,7 +510,7 @@ public class IOUtil
             }
             catch (IOException e)
             {
-                logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
+                Predefine.logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
             }
             return;
         }
@@ -529,7 +528,7 @@ public class IOUtil
                 }
                 catch (IOException e)
                 {
-                    logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
+                    Predefine.logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
                 }
                 return false;
             }
@@ -555,7 +554,7 @@ public class IOUtil
                         }
                         catch (IOException e)
                         {
-                            logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
+                            Predefine.logger.warning("关闭文件失败" + TextUtility.exceptionToString(e));
                         }
                     }
                 }
@@ -566,7 +565,7 @@ public class IOUtil
             }
             catch (IOException e)
             {
-                logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
+                Predefine.logger.warning("在读取过程中发生错误" + TextUtility.exceptionToString(e));
             }
             return preLine;
         }
@@ -622,8 +621,8 @@ public class IOUtil
      */
     public static InputStream newInputStream(String path) throws IOException
     {
-        if (IOAdapter == null) return new FileInputStream(path);
-        return IOAdapter.open(path);
+        if (HanLP.Config.IOAdapter == null) return new FileInputStream(path);
+        return HanLP.Config.IOAdapter.open(path);
     }
 
     /**
@@ -634,8 +633,8 @@ public class IOUtil
      */
     public static OutputStream newOutputStream(String path) throws IOException
     {
-        if (IOAdapter == null) return new FileOutputStream(path);
-        return IOAdapter.create(path);
+        if (HanLP.Config.IOAdapter == null) return new FileOutputStream(path);
+        return HanLP.Config.IOAdapter.create(path);
     }
 
     /**

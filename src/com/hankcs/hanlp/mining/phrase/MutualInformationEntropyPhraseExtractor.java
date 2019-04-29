@@ -12,12 +12,12 @@
 package com.hankcs.hanlp.mining.phrase;
 
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.corpus.occurrence.Occurrence;
-import com.hankcs.hanlp.corpus.occurrence.PairFrequency;
 import com.hankcs.hanlp.dictionary.stopword.CoreStopWordDictionary;
 import com.hankcs.hanlp.dictionary.stopword.Filter;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
+import com.hankcs.hanlp.corpus.occurrence.Occurrence;
+import com.hankcs.hanlp.corpus.occurrence.PairFrequency;
 
 import java.util.LinkedList;
 import java.util.List;

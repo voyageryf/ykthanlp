@@ -10,8 +10,8 @@
  */
 package com.hankcs.hanlp.seg.common;
 
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

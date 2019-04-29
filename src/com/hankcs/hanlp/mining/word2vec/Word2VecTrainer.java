@@ -1,11 +1,10 @@
 package com.hankcs.hanlp.mining.word2vec;
 
 
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.IOException;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 词向量训练工具
@@ -222,7 +221,7 @@ public class Word2VecTrainer
         }
         catch (IOException e)
         {
-            logger.warning("训练过程中发生IO异常\n" + TextUtility.exceptionToString(e));
+            Predefine.logger.warning("训练过程中发生IO异常\n" + TextUtility.exceptionToString(e));
         }
 
         return null;

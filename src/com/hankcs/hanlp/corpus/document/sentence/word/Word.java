@@ -11,7 +11,8 @@
  */
 package com.hankcs.hanlp.corpus.document.sentence.word;
 
-import static com.hankcs.hanlp.utility.Predefine.logger;
+import com.hankcs.hanlp.utility.Predefine;
+
 /**
  * 一个单词
  * @author hankcs
@@ -52,7 +53,7 @@ public class Word implements IWord
         int cutIndex = param.lastIndexOf('/');
         if (cutIndex <= 0 || cutIndex == param.length() - 1)
         {
-            logger.warning("使用 " + param + "创建单个单词失败");
+            Predefine.logger.warning("使用 " + param + "创建单个单词失败");
             return null;
         }
 

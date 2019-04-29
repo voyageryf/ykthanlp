@@ -5,30 +5,27 @@
 
 package com.hankcs.hanlp.dependency.perceptron.transition.trainer;
 
-import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Edge;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Evaluator;
+import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Pair;
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
 import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
 import com.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.BeamElement;
-import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
-import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
-import com.hankcs.hanlp.dependency.perceptron.transition.parser.*;
-import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
+import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.State;
-import com.hankcs.hanlp.model.perceptron.feature.FeatureSortItem;
+import com.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
+import com.hankcs.hanlp.corpus.io.IOUtil;
+import com.hankcs.hanlp.dependency.perceptron.transition.parser.*;
+import com.hankcs.hanlp.dependency.perceptron.transition.parser.*;
+import com.hankcs.hanlp.dependency.perceptron.transition.parser.*;
 import com.hankcs.hanlp.utility.MathUtility;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.*;
-
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
 
 public class ArcEagerBeamTrainer extends TransitionBasedParser
 {

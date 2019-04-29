@@ -11,7 +11,9 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
+import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
+import com.hankcs.hanlp.utility.Predefine;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -19,9 +21,6 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 可以调整大小的词典
@@ -36,7 +35,7 @@ public abstract class SimpleDictionary<V>
     {
         try
         {
-            BufferedReader br = new BufferedReader(new InputStreamReader(IOAdapter == null ? new FileInputStream(path) : IOAdapter.open(path), "UTF-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(HanLP.Config.IOAdapter == null ? new FileInputStream(path) : HanLP.Config.IOAdapter.open(path), "UTF-8"));
             String line;
             while ((line = br.readLine()) != null)
             {
@@ -48,7 +47,7 @@ public abstract class SimpleDictionary<V>
         }
         catch (Exception e)
         {
-            logger.warning("读取" + path + "失败" + e);
+            Predefine.logger.warning("读取" + path + "失败" + e);
             return false;
         }
         return true;
@@ -81,7 +80,7 @@ public abstract class SimpleDictionary<V>
     {
         if (other.trie == null)
         {
-            logger.warning("有个词典还没加载");
+            Predefine.logger.warning("有个词典还没加载");
             return;
         }
         for (Map.Entry<String, V> entry : other.trie.entrySet())

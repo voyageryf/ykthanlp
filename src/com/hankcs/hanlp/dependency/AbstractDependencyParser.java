@@ -11,10 +11,10 @@
  */
 package com.hankcs.hanlp.dependency;
 
+import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
 import com.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.tokenizer.NLPTokenizer;
 import com.hankcs.hanlp.utility.GlobalObjectPool;
 

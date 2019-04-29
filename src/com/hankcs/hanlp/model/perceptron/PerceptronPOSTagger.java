@@ -11,14 +11,14 @@
 package com.hankcs.hanlp.model.perceptron;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
 import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
 import com.hankcs.hanlp.model.perceptron.instance.Instance;
 import com.hankcs.hanlp.model.perceptron.instance.POSInstance;
+import com.hankcs.hanlp.tokenizer.lexical.POSTagger;
 import com.hankcs.hanlp.model.perceptron.model.LinearModel;
 import com.hankcs.hanlp.model.perceptron.common.TaskType;
-import com.hankcs.hanlp.corpus.document.sentence.Sentence;
-import com.hankcs.hanlp.tokenizer.lexical.POSTagger;
 
 import java.io.IOException;
 import java.util.List;

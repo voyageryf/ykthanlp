@@ -10,8 +10,8 @@
  */
 package com.hankcs.hanlp.tokenizer.pipe;
 
-import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.tokenizer.lexical.LexicalAnalyzer;
+import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 
 import java.util.List;
 import java.util.ListIterator;

@@ -12,11 +12,11 @@
 package com.hankcs.hanlp.recognition.nr;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.dictionary.nr.TranslatedPersonDictionary;
-import com.hankcs.hanlp.seg.common.Vertex;
-import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.List;

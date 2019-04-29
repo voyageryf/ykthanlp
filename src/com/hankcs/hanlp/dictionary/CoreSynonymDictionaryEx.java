@@ -12,12 +12,12 @@
 package com.hankcs.hanlp.dictionary;
 
 import com.hankcs.hanlp.HanLP;
-import com.hankcs.hanlp.algorithm.EditDistance;
-import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.dictionary.common.CommonSynonymDictionary;
 import com.hankcs.hanlp.dictionary.common.CommonSynonymDictionaryEx;
 import com.hankcs.hanlp.dictionary.stopword.CoreStopWordDictionary;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.algorithm.EditDistance;
+import com.hankcs.hanlp.corpus.io.IOUtil;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.util.ArrayList;

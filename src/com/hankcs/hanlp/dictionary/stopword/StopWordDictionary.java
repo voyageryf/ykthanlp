@@ -11,14 +11,11 @@
  */
 package com.hankcs.hanlp.dictionary.stopword;
 
-import com.hankcs.hanlp.collection.MDAG.MDAGSet;
-import com.hankcs.hanlp.dictionary.common.CommonDictionary;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.collection.MDAG.MDAGSet;
 
 import java.io.*;
 import java.util.Collection;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs

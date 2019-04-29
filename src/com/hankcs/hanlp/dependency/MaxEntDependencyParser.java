@@ -13,14 +13,14 @@ package com.hankcs.hanlp.dependency;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.dartsclone.Pair;
-import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
-import com.hankcs.hanlp.corpus.io.ByteArray;
-import com.hankcs.hanlp.corpus.io.ByteArrayFileStream;
 import com.hankcs.hanlp.dependency.common.Edge;
 import com.hankcs.hanlp.dependency.common.Node;
 import com.hankcs.hanlp.dependency.perceptron.parser.KBeamArcEagerDependencyParser;
-import com.hankcs.hanlp.model.maxent.MaxEntModel;
 import com.hankcs.hanlp.seg.common.Term;
+import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
+import com.hankcs.hanlp.corpus.io.ByteArray;
+import com.hankcs.hanlp.corpus.io.ByteArrayFileStream;
+import com.hankcs.hanlp.model.maxent.MaxEntModel;
 import com.hankcs.hanlp.utility.GlobalObjectPool;
 import com.hankcs.hanlp.utility.Predefine;
 

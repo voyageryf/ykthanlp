@@ -12,10 +12,10 @@ package com.hankcs.hanlp.mining.word;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.algorithm.MaxHeap;
-import com.hankcs.hanlp.corpus.occurrence.TermFrequency;
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.summary.KeywordExtractor;
+import com.hankcs.hanlp.corpus.occurrence.TermFrequency;
 
 import java.util.*;
 

@@ -24,13 +24,12 @@ import com.hankcs.hanlp.seg.WordBasedSegment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.seg.common.Vertex;
 import com.hankcs.hanlp.seg.common.WordNet;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.utility.TextUtility;
 
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * Viterbi分词器<br>
@@ -202,7 +201,7 @@ public class ViterbiSegment extends WordBasedSegment
         {
             return;
         }
-        logger.info("开始加载自定义词典:" + customPath);
+        Predefine.logger.info("开始加载自定义词典:" + customPath);
         DoubleArrayTrie<CoreDictionary.Attribute> dat = new DoubleArrayTrie<CoreDictionary.Attribute>();
         String path[] = customPath.split(";");
         String mainPath = path[0];

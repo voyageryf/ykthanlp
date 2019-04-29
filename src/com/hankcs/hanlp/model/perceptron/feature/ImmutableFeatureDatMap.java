@@ -11,8 +11,8 @@
  */
 package com.hankcs.hanlp.model.perceptron.feature;
 
-import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
 import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
+import com.hankcs.hanlp.model.perceptron.tagset.TagSet;
 
 import java.util.Map;
 import java.util.Set;

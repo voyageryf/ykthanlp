@@ -11,9 +11,9 @@
  */
 package com.hankcs.hanlp.classification.corpus;
 
+import com.hankcs.hanlp.classification.collections.FrequencyMap;
 import com.hankcs.hanlp.collection.trie.ITrie;
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
-import com.hankcs.hanlp.classification.collections.FrequencyMap;
 
 import java.io.DataInputStream;
 import java.io.IOException;

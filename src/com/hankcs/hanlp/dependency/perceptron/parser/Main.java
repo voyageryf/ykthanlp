@@ -5,17 +5,16 @@
 
 package com.hankcs.hanlp.dependency.perceptron.parser;
 
-import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
 import com.hankcs.hanlp.dependency.perceptron.accessories.CoNLLReader;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Evaluator;
 import com.hankcs.hanlp.dependency.perceptron.accessories.Options;
 import com.hankcs.hanlp.dependency.perceptron.learning.AveragedPerceptron;
+import com.hankcs.hanlp.dependency.perceptron.structures.IndexMaps;
 import com.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
 import com.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
 import com.hankcs.hanlp.dependency.perceptron.transition.parser.KBeamArcEagerParser;
 import com.hankcs.hanlp.dependency.perceptron.transition.trainer.ArcEagerBeamTrainer;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

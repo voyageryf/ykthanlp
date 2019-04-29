@@ -12,6 +12,7 @@
 package com.hankcs.hanlp.corpus.document;
 
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.CompoundWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
@@ -24,8 +25,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs
@@ -50,7 +49,7 @@ public class Document implements Serializable
             Sentence sentence = Sentence.create(single);
             if (sentence == null)
             {
-                logger.warning("使用" + single + "构建句子失败");
+                Predefine.logger.warning("使用" + single + "构建句子失败");
                 return null;
             }
             sentenceList.add(sentence);
@@ -241,7 +240,7 @@ public class Document implements Serializable
             Sentence sentence = Sentence.create(line);
             if (sentence == null)
             {
-                logger.warning("使用 " + line + " 创建句子失败");
+                Predefine.logger.warning("使用 " + line + " 创建句子失败");
                 return null;
             }
             sentenceList.add(sentence);

@@ -11,8 +11,8 @@
  */
 package com.hankcs.hanlp.classification.models;
 
-import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 import com.hankcs.hanlp.classification.tokenizers.ITokenizer;
+import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 
 import java.io.*;
 

@@ -12,21 +12,20 @@
 package com.hankcs.hanlp.dictionary.nr;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
 import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
 import com.hankcs.hanlp.corpus.tag.NR;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary;
 import com.hankcs.hanlp.dictionary.TransformMatrixDictionary;
-import com.hankcs.hanlp.seg.common.Vertex;
-import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.*;
 
 import static com.hankcs.hanlp.corpus.tag.NR.*;
 import static com.hankcs.hanlp.utility.Predefine.logger;
-import static com.hankcs.hanlp.dictionary.nr.NRConstant.*;
 
 /**
  * 人名识别用的词典，实际上是对两个词典的包装
@@ -189,7 +188,7 @@ public class PersonDictionary
                     System.out.printf("识别出人名：%s %s\n", name, value);
                 }
                 int offset = offsetArray[begin];
-                wordNetOptimum.insert(offset, new Vertex(Predefine.TAG_PEOPLE, name, ATTRIBUTE, WORD_ID), wordNetAll);
+                wordNetOptimum.insert(offset, new Vertex(Predefine.TAG_PEOPLE, name, ATTRIBUTE, NRConstant.WORD_ID), wordNetAll);
             }
         });
     }

@@ -13,7 +13,6 @@ package com.hankcs.hanlp.dictionary;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.seg.common.Vertex;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.io.*;

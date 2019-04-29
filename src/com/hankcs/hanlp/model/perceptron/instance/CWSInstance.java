@@ -10,12 +10,11 @@
  */
 package com.hankcs.hanlp.model.perceptron.instance;
 
-import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
-import com.hankcs.hanlp.model.perceptron.feature.MutableFeatureMap;
-import com.hankcs.hanlp.model.perceptron.tagset.CWSTagSet;
-import com.hankcs.hanlp.model.perceptron.utility.Utility;
 import com.hankcs.hanlp.corpus.document.sentence.Sentence;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
+import com.hankcs.hanlp.utility.TextUtility;
+import com.hankcs.hanlp.model.perceptron.feature.FeatureMap;
+import com.hankcs.hanlp.model.perceptron.tagset.CWSTagSet;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class CWSInstance extends Instance
      */
     public CWSInstance(String[] termArray, FeatureMap featureMap)
     {
-        String sentence = com.hankcs.hanlp.utility.TextUtility.combine(termArray);
+        String sentence = TextUtility.combine(termArray);
         CWSTagSet tagSet = (CWSTagSet) featureMap.tagSet;
 
         tagArray = new int[sentence.length()];

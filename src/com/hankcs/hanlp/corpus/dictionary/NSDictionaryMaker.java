@@ -11,23 +11,17 @@
  */
 package com.hankcs.hanlp.corpus.dictionary;
 
-import com.hankcs.hanlp.corpus.document.CorpusLoader;
-import com.hankcs.hanlp.corpus.document.Document;
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.document.sentence.word.IWord;
 import com.hankcs.hanlp.corpus.document.sentence.word.Word;
-import com.hankcs.hanlp.corpus.tag.NR;
 import com.hankcs.hanlp.corpus.tag.NS;
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.corpus.util.CorpusUtil;
 import com.hankcs.hanlp.corpus.util.Precompiler;
-import com.hankcs.hanlp.utility.Predefine;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs

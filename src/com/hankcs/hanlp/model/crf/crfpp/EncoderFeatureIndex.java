@@ -1,6 +1,5 @@
 package com.hankcs.hanlp.model.crf.crfpp;
 
-import com.hankcs.hanlp.collection.dartsclone.DoubleArray;
 import com.hankcs.hanlp.collection.trie.datrie.IntArrayList;
 import com.hankcs.hanlp.collection.trie.datrie.MutableDoubleArrayTrieInteger;
 import com.hankcs.hanlp.corpus.io.IOUtil;

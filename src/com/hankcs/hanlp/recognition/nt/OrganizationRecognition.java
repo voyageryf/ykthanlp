@@ -12,13 +12,13 @@
 package com.hankcs.hanlp.recognition.nt;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.seg.common.Vertex;
+import com.hankcs.hanlp.seg.common.WordNet;
 import com.hankcs.hanlp.algorithm.Viterbi;
 import com.hankcs.hanlp.corpus.dictionary.item.EnumItem;
 import com.hankcs.hanlp.corpus.tag.NT;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.nt.OrganizationDictionary;
-import com.hankcs.hanlp.seg.common.Vertex;
-import com.hankcs.hanlp.seg.common.WordNet;
 
 import java.util.Iterator;
 import java.util.LinkedList;

@@ -10,12 +10,12 @@
  * </copyright>
  */
 package com.hankcs.hanlp.corpus.io;
+import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.utility.Predefine;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static com.hankcs.hanlp.HanLP.Config.IOAdapter;
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * @author hankcs
@@ -35,17 +35,17 @@ public abstract class ByteArrayStream extends ByteArray
 
     public static ByteArrayStream createByteArrayStream(String path)
     {
-        if (IOAdapter == null) return ByteArrayFileStream.createByteArrayFileStream(path);
+        if (HanLP.Config.IOAdapter == null) return ByteArrayFileStream.createByteArrayFileStream(path);
 
         try
         {
-            InputStream is = IOAdapter.open(path);
+            InputStream is = HanLP.Config.IOAdapter.open(path);
             if (is instanceof FileInputStream) return ByteArrayFileStream.createByteArrayFileStream((FileInputStream) is);
             return ByteArrayOtherStream.createByteArrayOtherStream(is);
         }
         catch (IOException e)
         {
-            logger.warning("打开失败：" + path);
+            Predefine.logger.warning("打开失败：" + path);
             return null;
         }
     }

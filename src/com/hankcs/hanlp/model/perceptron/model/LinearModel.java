@@ -13,6 +13,7 @@ package com.hankcs.hanlp.model.perceptron.model;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.algorithm.MaxHeap;
+import com.hankcs.hanlp.classification.utilities.io.ConsoleLogger;
 import com.hankcs.hanlp.collection.trie.datrie.MutableDoubleArrayTrieInteger;
 import com.hankcs.hanlp.corpus.io.ByteArray;
 import com.hankcs.hanlp.corpus.io.ByteArrayStream;
@@ -28,8 +29,6 @@ import com.hankcs.hanlp.utility.MathUtility;
 
 import java.io.*;
 import java.util.*;
-
-import static com.hankcs.hanlp.classification.utilities.io.ConsoleLogger.logger;
 
 /**
  * 在线学习标注模型
@@ -98,14 +97,14 @@ public class LinearModel implements ICacheAble
             }
         });
 
-        logger.start("裁剪特征...\n");
+        ConsoleLogger.logger.start("裁剪特征...\n");
         int logEvery = (int) Math.ceil(featureMap.size() / 10000f);
         int n = 0;
         for (Map.Entry<String, Integer> entry : featureIdSet)
         {
             if (++n % logEvery == 0 || n == featureMap.size())
             {
-                logger.out("\r%.2f%% ", MathUtility.percentage(n, featureMap.size()));
+                ConsoleLogger.logger.out("\r%.2f%% ", MathUtility.percentage(n, featureMap.size()));
             }
             if (entry.getValue() < tagSet.sizeIncludingBos())
             {
@@ -115,7 +114,7 @@ public class LinearModel implements ICacheAble
             if (item.total < threshold) continue;
             heap.add(item);
         }
-        logger.finish("\n裁剪完毕\n");
+        ConsoleLogger.logger.finish("\n裁剪完毕\n");
 
         int size = heap.size() + tagSet.sizeIncludingBos();
         float[] parameter = new float[size * tagSet.size()];
@@ -129,14 +128,14 @@ public class LinearModel implements ICacheAble
         {
             parameter[i] = this.parameter[i];
         }
-        logger.start("构建双数组trie树...\n");
+        ConsoleLogger.logger.start("构建双数组trie树...\n");
         logEvery = (int) Math.ceil(heap.size() / 10000f);
         n = 0;
         for (FeatureSortItem item : heap)
         {
             if (++n % logEvery == 0 || n == heap.size())
             {
-                logger.out("\r%.2f%% ", MathUtility.percentage(n, heap.size()));
+                ConsoleLogger.logger.out("\r%.2f%% ", MathUtility.percentage(n, heap.size()));
             }
             int id = mdat.size();
             mdat.put(item.key, id);
@@ -145,7 +144,7 @@ public class LinearModel implements ICacheAble
                 parameter[id * tagSet.size() + i] = this.parameter[item.id * tagSet.size() + i];
             }
         }
-        logger.finish("\n构建完毕\n");
+        ConsoleLogger.logger.finish("\n构建完毕\n");
         this.featureMap = new ImmutableFeatureMDatMap(mdat, tagSet);
         this.parameter = parameter;
         return this;
@@ -383,14 +382,14 @@ public class LinearModel implements ICacheAble
     public void load(String modelFile) throws IOException
     {
         if (HanLP.Config.DEBUG)
-            logger.start("加载 %s ... ", modelFile);
+            ConsoleLogger.logger.start("加载 %s ... ", modelFile);
         ByteArrayStream byteArray = ByteArrayStream.createByteArrayStream(modelFile);
         if (!load(byteArray))
         {
             throw new IOException(String.format("%s 加载失败", modelFile));
         }
         if (HanLP.Config.DEBUG)
-            logger.finish(" 加载完毕\n");
+            ConsoleLogger.logger.finish(" 加载完毕\n");
     }
 
     public TagSet tagSet()

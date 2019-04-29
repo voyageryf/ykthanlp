@@ -21,12 +21,9 @@ import com.hankcs.hanlp.dependency.common.Node;
 import com.hankcs.hanlp.utility.Predefine;
 
 import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
-
-import static com.hankcs.hanlp.utility.Predefine.logger;
 
 /**
  * 词、词性相互构成依存关系的统计句法分析模型
@@ -41,7 +38,7 @@ public class WordNatureDependencyModel
         long start = System.currentTimeMillis();
         if (load(path))
         {
-            logger.info("加载依存句法生成模型" + path + "成功，耗时：" + (System.currentTimeMillis() - start) + " ms");
+            Predefine.logger.info("加载依存句法生成模型" + path + "成功，耗时：" + (System.currentTimeMillis() - start) + " ms");
         }
         else
         {
@@ -99,7 +96,7 @@ public class WordNatureDependencyModel
         }
 
         trie.build(map);
-        if (!saveDat(path, map)) logger.warning("缓存" + path + "失败");
+        if (!saveDat(path, map)) Predefine.logger.warning("缓存" + path + "失败");
         return true;
     }
 
@@ -130,7 +127,7 @@ public class WordNatureDependencyModel
         }
         catch (Exception e)
         {
-            logger.warning("保存失败" + e);
+            Predefine.logger.warning("保存失败" + e);
             return false;
         }
         return true;

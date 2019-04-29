@@ -12,16 +12,16 @@
 package com.hankcs.hanlp.corpus.dictionary;
 
 
+import com.hankcs.hanlp.utility.Predefine;
 import com.hankcs.hanlp.corpus.io.IOUtil;
 
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import static com.hankcs.hanlp.utility.Predefine.logger;
+
 /**
  * 转移矩阵词典制作工具
  * @author hankcs
@@ -98,7 +98,7 @@ public class TMDictionaryMaker implements ISaveAble
         }
         catch (Exception e)
         {
-            logger.warning("在保存转移矩阵词典到" + path + "时发生异常" + e);
+            Predefine.logger.warning("在保存转移矩阵词典到" + path + "时发生异常" + e);
             return false;
         }
         return true;
